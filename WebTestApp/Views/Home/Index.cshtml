@@ -1,0 +1,30 @@
+﻿@{ ViewData["Title"] = "Home Page"; }
+
+<div class="text-center myForm">
+    @*<div class="validation" asp-validation-summary="ModelOnly"></div>*@
+
+    <form method="post" action="~/Home/AddAppeal">
+        <input type="hidden" name="ID" value="@ViewBag.ID">
+        <div class="form-group">
+            <label>Электронная почта</label>
+            <input type="email" class="form-control" id="mail" aria-describedby="emailHelp"
+                   name="mail" placeholder="Введите mail" value="@ViewData["mail"]" @ViewBag.Mode>
+
+        </div>
+
+
+        <div class="form-group">
+            <label for="phonenum">Номер телефона (формат: номер должен содержать 11 цифр)</label><br />
+            <input class="form-control" id="phonenum" type="tel" name="phone" placeholder="Введите телефон"
+                   pattern="[0-9]{11}" required value="@ViewData["phone"]" @ViewBag.Mode>
+        </div>
+
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Example textarea</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" name="text" rows="3" aria-describedby="inputGroupPrepend2" required> @ViewData["text"] </textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Отправить</button>
+    </form>
+
+</div>

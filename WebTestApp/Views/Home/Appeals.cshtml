@@ -1,0 +1,26 @@
+﻿
+<h1>Обращения</h1>
+
+<table class="table">
+    @{
+        foreach (var item in ViewData["Data"] as List<Appeal>)
+        {
+            <tr>
+                <td>
+                    @item.Mail
+                </td>
+                <td>
+                    @item.Phone
+                </td>
+                <td>
+                    @item.Text
+
+                    <div class="myBtn">
+                        <a asp-controller="Home" asp-action="EditAppeal" asp-route-area="" asp-route-id="@item.ID"> <img src="~/img/edit.png" alt="Редактировать обращение" /></a>
+                        <a asp-controller="Home" asp-action="DeleteAppeal" asp-route-area="" asp-route-id="@item.ID"> <img src="~/img/trash.png" alt="Удалить обращение" /></a>
+                    </div>
+                </td>
+            </tr>
+        }
+    }
+</table>
